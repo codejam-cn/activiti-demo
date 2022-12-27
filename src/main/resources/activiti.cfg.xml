@@ -4,11 +4,26 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/tx
-       http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--    在默认方式下，bean的id固定为 processEngineConfiguration-->
+    <bean id="processEngineConfiguration"
+          class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+
+        <!--    配置数据库信息-->
+        <property name="jdbcDriver" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://devmysqlx03.xuetian.cn:33306/activiti"></property>
+        <property name="jdbcUsername" value="root"></property>
+        <property name="jdbcPassword" value="xuetian.edu"></property>
+
+
+        <!--    activiti数据库表在生成时的策略-->
+        <property name="databaseSchemaUpdate" value="true"></property>
+    </bean>
 
 
 </beans>
