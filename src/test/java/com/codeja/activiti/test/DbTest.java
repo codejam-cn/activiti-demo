@@ -7,7 +7,7 @@ import org.junit.Test;
 public class DbTest {
 
     /**
-     *
+     * 初始化25个表
      * @param
      */
     @Test
